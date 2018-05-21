@@ -61,4 +61,13 @@ def test_get_books_library
     assert_equal(@library[2][:rental_details], rent_details)
   end
 
+  def test_add_book
+    library = Library.new(@library)
+    num_of_books = library.add_book("13 reasons why")
+    assert_equal(5, num_of_books)
+  end
+
+  def test_change_rental_details
+  end 
+
 end
