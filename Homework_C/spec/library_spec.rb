@@ -43,9 +43,22 @@ end
 
 def test_get_books_library
   library = Library.new(@library[0...3])
+
   books = library.get_books
 
   assert_equal(@library[0...3], books)
+  end
+
+  def test_find_book_by_title
+  library = Library.new(@library)
+  book = library.find_book_by_title("1984")
+  assert_equal(@library[3], book)
+  end
+
+  def test_find_rental_details_by_title
+    library = Library.new(@library)
+    rent_details = library.find_rental_details_by_title("wonder")
+    assert_equal(@library[2][:rental_details], rent_details)
   end
 
 end
