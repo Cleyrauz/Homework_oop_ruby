@@ -68,6 +68,17 @@ def test_get_books_library
   end
 
   def test_change_rental_details
-  end 
+    expected = {
+       title: "the litle princess",
+       rental_details: {
+        student_name: "Mark",
+        date: "02/12/18"
+       }
+     }
+  library = Library.new(@library)
+  book_updated = library.change_rental_details("the litle princess", "Mark",
+    "02/12/18")
+  assert_equal(expected, book_updated)
+  end
 
 end
